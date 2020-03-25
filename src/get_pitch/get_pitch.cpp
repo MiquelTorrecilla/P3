@@ -66,7 +66,7 @@ int main(int argc, const char *argv[]) {
   /// central-clipping or low pass filtering may be used.
   
 
- for (unsigned int i=0; i<x.size(); ++i){
+/* for (unsigned int i=0; i<x.size(); ++i){
   //TODO Preprocessing: Center clipping
       if(abs(x[i])<CLIP){
        x[i]=0;
@@ -78,7 +78,7 @@ int main(int argc, const char *argv[]) {
        x[i] = x[i] - CLIP;
       }
   }
-
+*/
 
   // Iterate for each frame and save values in f0 vector
   vector<float>::iterator iX;
@@ -95,12 +95,12 @@ int main(int argc, const char *argv[]) {
     int w_size=3;
     int vector[w_size];
 
-    for((iX+1) =f0.begin(); (iX-1)=f0.end(); ++iX){
+    for(iX=f0.begin()+1; iX==f0.end()-1; ++iX){
       vector[0]=*(iX-1);
       vector[1]=*iX;
       vector[2]=*(iX+1);
       sort(vector,vector+w_size-1);
-      f0[iX]=vector[1];
+      *iX=vector[1];
     }
 
 
