@@ -66,20 +66,23 @@ int main(int argc, const char *argv[]) {
   /// central-clipping or low pass filtering may be used.
   
 
-/* for (unsigned int i=0; i<x.size(); ++i){
-  //TODO Preprocessing: Center clipping
-      if(abs(x[i])<CLIP){
-       x[i]=0;
-      }
-      else if(x[i]<-CLIP){
-       x[i] = x[i]+CLIP; 
-      }
-      else{
-       x[i] = x[i] - CLIP;
-      }
-  }
-*/
+  float max_x = 0.0;
+  unsigned int i;
 
+  for(i = 0; i<x.size();i++){
+    if(x[i] > max_x)
+      max_x =x[i];
+  }
+  float center_x = 0.015*max_x;
+
+  for(i=0; i<x.size(); i++){
+    x[i] /= max_x;
+    if (x[i] > center_x)
+      x[i] -= center_x; 
+    else if ( x[i] < -center_x)
+      x[i] += center_x;
+    else x[i] = 0;
+  }
   // Iterate for each frame and save values in f0 vector
   vector<float>::iterator iX;
   vector<float> f0;
@@ -91,18 +94,15 @@ int main(int argc, const char *argv[]) {
   /// \TODO
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
+std::vector<float> aux(f0);
+unsigned int j =0;
+float maximo, minimo;
 
-    int w_size=3;
-    int vector[w_size];
-
-    for(iX=f0.begin()+1; iX==f0.end()-1; ++iX){
-      vector[0]=*(iX-1);
-      vector[1]=*iX;
-      vector[2]=*(iX+1);
-      sort(vector,vector+w_size-1);
-      *iX=vector[1];
-    }
-
+for (j=2;j<aux.size() -1;++j){
+  minimo = min(min(aux[j-1], aux[j]),aux[j+1]);
+  maximo = max(max(aux[j-1], aux[j]),aux[j+1]);
+  f0[j] = aux[j-1] + aux[j] + aux[j+1] -minimo -maximo;
+}
 
   // Write f0 contour into the output file
   ofstream os(output_txt);
