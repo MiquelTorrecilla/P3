@@ -38,9 +38,9 @@ Ejercicios básicos
 
 <img src ="ej1.png" witdh="640" align="center">
 
-	*Observamos arriba la pronunciación de una vocal sonora, en este caso la 'a', y su periodo de pitch
-	 indicado por los marcadores. Abajo, su autocorrelació, y la posición del segundo máximo respecto al
-	 principal.*
+*Observamos arriba la pronunciación de una vocal sonora, en este caso la 'a', y su periodo de pitch
+ indicado por los marcadores. Abajo, su autocorrelació, y la posición del segundo máximo respecto al
+ principal.*
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
@@ -114,8 +114,8 @@ Ejercicios básicos
 
 <img src ="taula.png" witdh="640" align="center">
 
-	*Nos quedamos con aquellos valores de r1norm, rmaxnorm y pot que nos dan un fscore mas alto. En este caso,
-	 respectivamente, 0.9, 0.4, y -38.*
+*Nos quedamos con aquellos valores de r1norm, rmaxnorm y pot que nos dan un fscore mas alto. En este caso,
+ respectivamente, 0.9, 0.4, y -38.*
 
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
