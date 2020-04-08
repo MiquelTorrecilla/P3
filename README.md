@@ -36,7 +36,7 @@ Ejercicios básicos
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.
 
-	<img src ="ej1.png" witdh="640" align="center">
+<img src ="ej1.png" witdh="640" align="center">
 
 	*Observamos arriba la pronunciación de una vocal sonora, en este caso la 'a', y su periodo de pitch
 	 indicado por los marcadores. Abajo, su autocorrelació, y la posición del segundo máximo respecto al
@@ -112,7 +112,7 @@ Ejercicios básicos
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
 
-		<img src ="taula.png" witdh="640" align="center">
+<img src ="taula.png" witdh="640" align="center">
 
 	*Nos quedamos con aquellos valores de r1norm, rmaxnorm y pot que nos dan un fscore mas alto. En este caso,
 	 respectivamente, 0.9, 0.4, y -38.*
